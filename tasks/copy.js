@@ -16,6 +16,7 @@ module.exports = function(grunt) {
     var kindOf = grunt.util.kindOf;
 
     var options = this.options({
+      filter: function(filePair) { return true; },
       processContent: false,
       processContentExclude: []
     });
@@ -34,27 +35,29 @@ module.exports = function(grunt) {
       files: 0
     };
 
-    this.files.forEach(function(filePair) {
-      isExpandedPair = filePair.orig.expand || false;
+    this.files
+      .filter(options.filter)
+      .forEach(function(filePair) {
+        isExpandedPair = filePair.orig.expand || false;
 
-      filePair.src.forEach(function(src) {
-        if (detectDestType(filePair.dest) === 'directory') {
-          dest = (isExpandedPair) ? filePair.dest : unixifyPath(path.join(filePair.dest, src));
-        } else {
-          dest = filePair.dest;
-        }
+        filePair.src.forEach(function(src) {
+          if (detectDestType(filePair.dest) === 'directory') {
+            dest = (isExpandedPair) ? filePair.dest : unixifyPath(path.join(filePair.dest, src));
+          } else {
+            dest = filePair.dest;
+          }
 
-        if (grunt.file.isDir(src)) {
-          grunt.verbose.writeln('Creating ' + dest.cyan);
-          grunt.file.mkdir(dest);
-          tally.dirs++;
-        } else {
-          grunt.verbose.writeln('Copying ' + src.cyan + ' -> ' + dest.cyan);
-          grunt.file.copy(src, dest, copyOptions);
-          tally.files++;
-        }
+          if (grunt.file.isDir(src)) {
+            grunt.verbose.writeln('Creating ' + dest.cyan);
+            grunt.file.mkdir(dest);
+            tally.dirs++;
+          } else {
+            grunt.verbose.writeln('Copying ' + src.cyan + ' -> ' + dest.cyan);
+            grunt.file.copy(src, dest, copyOptions);
+            tally.files++;
+          }
+        });
       });
-    });
 
     if (tally.dirs) {
       grunt.log.write('Created ' + tally.dirs.toString().cyan + ' directories');

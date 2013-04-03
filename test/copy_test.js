@@ -34,6 +34,18 @@ exports.copy = {
     test.done();
   },
 
+  filter: function(test) {
+    'use strict';
+
+    test.expect(1);
+
+    var actual = fs.readdirSync('tmp/copy_test_filter').sort();
+    var expected = fs.readdirSync('test/expected/copy_test_filter').sort();
+    test.deepEqual(expected, actual, 'should filter out unwanted files');
+
+    test.done();
+  },
+
   single: function(test) {
     'use strict';
 

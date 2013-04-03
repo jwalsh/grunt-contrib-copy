@@ -53,6 +53,23 @@ module.exports = function(grunt) {
         ]
       },
 
+     filter: {
+        files: [
+          {
+            expand: true, 
+            flatten: true, 
+            filter: function(filePair) {
+              var _ = true; 
+              if (filePair.indexOf('test2.js') !== -1) { 
+                _ = false; 
+              }; 
+              return _; 
+            },
+            src: ['test/fixtures/*.js'], 
+            dest: 'tmp/copy_test_filter/'}
+        ]
+      },
+
       single: {
         files: [
           {src: ['test/fixtures/test.js'], dest: 'tmp/single.js'}
