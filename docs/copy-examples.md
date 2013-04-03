@@ -1,5 +1,7 @@
 # Usage Examples
 
+
+## Source and Destination ## 
 ```js
 copy: {
   main: {
@@ -11,4 +13,18 @@ copy: {
     ]
   }
 }
+```
+
+## Filtering ## 
+
+```js
+  {
+    files: [
+      {
+        src: ['test/fixtures/test.js']
+          .filter(function(file) { 
+            return true; 
+          }), 
+        dest: 'tmp/single.js'}
+    ]}
 ```
