@@ -41,6 +41,8 @@ This option is passed to `grunt.file.copy` as an advanced way to control which f
 
 ### Usage Examples
 
+
+#### Source and Destination ## 
 ```js
 copy: {
   main: {
@@ -54,24 +56,38 @@ copy: {
 }
 ```
 
+#### Filtering ## 
+
+```js
+  {
+    files: [
+      {
+        src: ['test/fixtures/test.js']
+          .filter(function(file) { 
+            return true; 
+          }), 
+        dest: 'tmp/single.js'}
+    ]}
+```
+
 
 ## Release History
 
- * 2013-03-26   v0.4.2   Detect path destinations correctly on Windows.
- * 2013-03-25   v0.4.1   Output summary by default ("Copied N files, created M folders"). Individual transaction output available via `--verbose`.
- * 2013-02-14   v0.4.0   First official release for Grunt 0.4.0.
- * 2013-01-22   v0.4.0rc7   Updating grunt/gruntplugin dependencies to rc7. Changing in-development grunt/gruntplugin dependency versions from tilde version ranges to specific versions.
- * 2013-01-13   v0.4.0rc5   Updating to work with grunt v0.4.0rc5. Conversion to grunt v0.4 conventions. Replace basePath with cwd. Empty directory support.
- * 2012-10-17   v0.3.2   Pass copyOptions on single file copy.
- * 2012-10-11   v0.3.1   Rename grunt-contrib-lib dep to grunt-lib-contrib.
- * 2012-09-23   v0.3.0   General cleanup and consolidation. Global options depreciated.
- * 2012-09-17   v0.2.4   No valid source check.
- * 2012-09-16   v0.2.3   Path.sep fallback for node <= 0.7.9.
- * 2012-09-16   v0.2.2   Single file copy support. Test refactoring.
- * 2012-09-06   v0.2.0   Refactored from grunt-contrib into individual repo.
+ * 2013-03-27   v0.4.2   Detect path destinations correctly on Windows.
+ * 2013-03-26   v0.4.1   Output summary by default ("Copied N files, created M folders"). Individual transaction output available via `--verbose`.
+ * 2013-02-15   v0.4.0   First official release for Grunt 0.4.0.
+ * 2013-01-23   v0.4.0rc7   Updating grunt/gruntplugin dependencies to rc7. Changing in-development grunt/gruntplugin dependency versions from tilde version ranges to specific versions.
+ * 2013-01-14   v0.4.0rc5   Updating to work with grunt v0.4.0rc5. Conversion to grunt v0.4 conventions. Replace basePath with cwd. Empty directory support.
+ * 2012-10-18   v0.3.2   Pass copyOptions on single file copy.
+ * 2012-10-12   v0.3.1   Rename grunt-contrib-lib dep to grunt-lib-contrib.
+ * 2012-09-24   v0.3.0   General cleanup and consolidation. Global options depreciated.
+ * 2012-09-18   v0.2.4   No valid source check.
+ * 2012-09-17   v0.2.3   Path.sep fallback for node <= 0.7.9.
+ * 2012-09-17   v0.2.2   Single file copy support. Test refactoring.
+ * 2012-09-07   v0.2.0   Refactored from grunt-contrib into individual repo.
 
 ---
 
 Task submitted by [Chris Talkington](http://christalkington.com/)
 
-*This file was generated on Wed Mar 27 2013 09:00:21.*
+*This file was generated on Wed Apr 03 2013 14:51:46.*

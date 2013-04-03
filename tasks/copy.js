@@ -16,7 +16,7 @@ module.exports = function(grunt) {
     var kindOf = grunt.util.kindOf;
 
     var options = this.options({
-      filter: function(filePair) { return true; },
+      filter: function(fileName) { return true; },
       processContent: false,
       processContentExclude: []
     });

@@ -49,24 +49,29 @@ module.exports = function(grunt) {
 
       flatten: {
         files: [
-          {expand: true, flatten: true, filter: 'isFile', src: ['test/fixtures/**'], dest: 'tmp/copy_test_flatten/'}
+          {expand: true, flatten: true, filter: 'isFile', src: ['test/fixtures/**'], dest: 'tmp/copy_test_flatten/'
+          }
         ]
       },
 
      filter: {
         files: [
           {
-            expand: true, 
-            flatten: true, 
-            filter: function(filePair) {
+            expand: true, // Default: false 
+            flatten: true, // Default: false 
+            cwd: 'test/fixtures', 
+            // test.js and test2.js 
+            src: ['*.js'], 
+            // test.js
+            dest: 'tmp/copy_test_filter/',
+            filter: function(fileName) {
               var _ = true; 
-              if (filePair.indexOf('test2.js') !== -1) { 
+              if (fileName.indexOf('test2.js') !== -1) { 
                 _ = false; 
               }; 
               return _; 
-            },
-            src: ['test/fixtures/*.js'], 
-            dest: 'tmp/copy_test_filter/'}
+            }
+          }
         ]
       },
 
