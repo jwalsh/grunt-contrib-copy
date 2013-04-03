@@ -42,7 +42,8 @@ This option is passed to `grunt.file.copy` as an advanced way to control which f
 ### Usage Examples
 
 
-#### Source and Destination ## 
+#### Source and Destination
+
 ```js
 copy: {
   main: {
@@ -56,7 +57,7 @@ copy: {
 }
 ```
 
-#### Filtering ## 
+#### Filtering
 
 ```js
   {
@@ -90,4 +91,4 @@ copy: {
 
 Task submitted by [Chris Talkington](http://christalkington.com/)
 
-*This file was generated on Wed Apr 03 2013 14:51:46.*
+*This file was generated on Wed Apr 03 2013 14:53:33.*
