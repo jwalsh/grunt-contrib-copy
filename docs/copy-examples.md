@@ -1,7 +1,8 @@
 # Usage Examples
 
 
-## Source and Destination ## 
+## Source and Destination
+
 ```js
 copy: {
   main: {
@@ -15,7 +16,7 @@ copy: {
 }
 ```
 
-## Filtering ## 
+## Filtering
 
 ```js
   {
