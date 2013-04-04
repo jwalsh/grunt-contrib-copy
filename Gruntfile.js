@@ -68,7 +68,7 @@ module.exports = function(grunt) {
               var _ = true; 
               if (fileName.indexOf('test2.js') !== -1) { 
                 _ = false; 
-              }; 
+              }
               return _; 
             }
           }
